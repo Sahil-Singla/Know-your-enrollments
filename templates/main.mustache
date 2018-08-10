@@ -1,0 +1,70 @@
+<section data-region='clist'>
+    <div class="container-clist">
+        <section class="tabs t-tabs" id="fancyTabWidget">
+            <ul class="nav nav-tabs fancyTabs" role="tablist">
+                <li id='course_clist' class="tab fancyTab active">
+                    <div class="arrow-down">
+                        <div class="arrow-down-inner">
+                        </div>
+                    </div>
+                    <a aria-controls="tabBody0" aria-selected="true" data-toggle="tab" href="#tabBody0" id="tab0" role="tab" tabindex="0">
+                        <span class="fa fa-desktop">
+                        </span>
+                        <span class="content-to-hide">
+                            Courses
+                        </span>
+                    </a>
+                </li>
+                <li id='category_clist' class="tab fancyTab">
+                    <div class="arrow-down">
+                        <div class="arrow-down-inner">
+                        </div>
+                    </div>
+                    <a aria-controls="tabBody1" aria-selected="true" data-toggle="tab" href="#tabBody1" id="tab1" role="tab" tabindex="0">
+                        <span class="fa fa-firefox">
+                        </span>
+                        <span class="content-to-hide">
+                            Categories
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <div aria-live="polite" class="tab-content fancyTabContent" id="myTabContent">
+                <div aria-hidden="false" aria-labelledby="tab0" class="tab-pane fade active in" id="tabBody0" role="tabpanel" tabindex="0">
+                    <div>
+                <div data-region="courses">
+                    <ul>
+                        {{#courses}}
+                        <li>
+                            {{{.}}}
+                        </li>
+                        {{/courses}}
+                    </ul>
+                </div>
+                <input type='text' id='search_course'>
+                <button id="search_course_button">Go</button>
+                    </div>
+                </div>
+                <div aria-hidden="true" aria-labelledby="tab1" class="tab-pane fade" id="tabBody1" role="tabpanel" tabindex="0">
+                <div data-region="categories">
+                    <ul>
+                        {{#categories}}
+                        <li>
+                            {{{.}}}
+                        </li>
+                        {{/categories}}
+                    </ul>
+                </div>
+                <input type='text' id='search_category'>
+                <button id="search_category_button">Go</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+{{#js}}
+    require(['block_clist/refresh'], function(refresh) {
+    refresh.reload();
+
+});
+{{/js}}
