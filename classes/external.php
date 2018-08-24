@@ -36,7 +36,7 @@ class block_clist_external extends external_api
         if($params['tab']=='course')
         {
             $data['courses'] = get_all_courses($params['search_text']);
-            $data['categories'] = get_all_categories();
+            $data['categories'] = get_top_categories();
         }
         else
         {

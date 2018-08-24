@@ -23,10 +23,10 @@ function get_all_courses($search_text = '') {
         }
 }
 
-function get_all_categories($search_text = '') {
+function get_top_categories($search_text = '') {
 
     global $DB, $CFG;
-    $query = "SELECT id, name from {course_categories} WHERE name LIKE '%".$search_text."%';";
+    $query = "SELECT id, name from {course_categories} WHERE name LIKE '%".$search_text."%' AND parent = 0";
     $categorylist = $DB->get_records_sql($query);
     //$categories = coursecat::get(0)->get_children();
 
